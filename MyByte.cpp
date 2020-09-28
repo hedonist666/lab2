@@ -114,15 +114,18 @@ void MyByte::changeDigitOct(int idx, unsigned char val) {
 
 unsigned char MyByte::getDigitBin(int idx) {
     if (idx < 0 || idx > 8) throw "index out of range";
+    --idx;
     return data.b.data & (1 << idx);
 }
 
 unsigned char MyByte::getDigitHex(int idx) {
     if (idx < 0 || idx > 2) throw "index out of range";
+    --idx;
     return data.x.data & (0xf << (idx * 4));
 }
 
 unsigned char MyByte::getDigitOct(int idx) {
     if (idx < 0 || idx > 3) throw "index out of range";
+    --idx;
     return data.o.data & (07 << (idx * 3));
 }
